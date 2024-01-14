@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Pravalikadev/maven_git_jenkinsfile_task.git'
+            }
+        }
+        stage('maven'){
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+    }
+}
+
